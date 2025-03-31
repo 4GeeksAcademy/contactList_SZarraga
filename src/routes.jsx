@@ -8,6 +8,7 @@ import {
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { ContactList } from "./pages/ContactList";
+import { AddContact } from "./pages/AddContact";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,6 +21,7 @@ export const router = createBrowserRouter(
       // Root Route: All navigation will start from here.
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
         <Route path="/" element={<ContactList />} />
+        <Route path="/addcontact" element={<AddContact />} />
       </Route>
     )
 );
