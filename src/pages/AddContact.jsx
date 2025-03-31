@@ -1,9 +1,16 @@
 import { React, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const AddContact = () => {
     const { dispatch } = useGlobalReducer();
-    const [newContactData, setNewContactData] = useState([]);
+    const [newContactData, setNewContactData] = useState({
+        name: "",
+        phone: "",
+        address: "",
+        email: ""
+    });
+    const navigate = useNavigate();
 
     const handleChanges = (event) => {
         const { name, value } = event.target;
@@ -31,7 +38,12 @@ export const AddContact = () => {
                 throw new Error(`Error - HTTP Status: ${resp.status}`);
             }
             const data = await resp.json();
-            dispatch({ type: "add_contact", payload: data.newContactData })
+            dispatch({ type: "add_contact", payload: data })
+            setNewContactData({
+                name: "", phone: "", address: "", email: "",
+
+            });
+            navigate("/");
 
         } catch (error) {
             console.error("Error adding contact: ", error);

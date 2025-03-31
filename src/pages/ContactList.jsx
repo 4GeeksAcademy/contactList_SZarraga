@@ -40,7 +40,7 @@ export const ContactList = () => {
             </div>
             <ul className="list-group mt-3">
                 {contacts.map((contact, index) => (
-                    <SingleContact contact={contact} key={index} />
+                    <SingleContact contact={contact} onContactDeleted={getContacts} key={index} />
                 ))}
             </ul>
         </div>
