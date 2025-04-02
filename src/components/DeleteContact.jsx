@@ -16,7 +16,6 @@ export const DeleteContact = async (id, dispatch) => {
 
     dispatch({ type: "delete_contact", payload: id });
 
-    console.log("Contacto eliminado correctamente");
     return true;
   } catch (error) {
     console.error("Error al eliminar contacto:", error);
