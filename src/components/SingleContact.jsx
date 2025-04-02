@@ -1,10 +1,12 @@
 import React from "react";
 import { DeleteContact } from "./DeleteContact";
+import { Navigate, useNavigate } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 
 const SingleContact = ({ contact }) => {
 
     const { dispatch } = useGlobalReducer();
+    const navigate = useNavigate();
 
     const handleDelete = async () => {
         await DeleteContact(contact.id, dispatch);
@@ -23,7 +25,7 @@ const SingleContact = ({ contact }) => {
                     </div>
                     <div className="col-2 d-flex flex-column">                            
                         <button className="btn btn-secondary" onClick={handleDelete}><i className="fa-solid fa-trash"></i></button>
-                        <button className="btn btn-primary mt-2"><i className="fa-solid fa-pen-to-square"></i></button>
+                        <button className="btn btn-primary mt-2" onClick={() => navigate(`/editcontact/${contact.id}`)}><i className="fa-solid fa-pen-to-square"></i></button>
                     </div>
                 </div>
             </div>

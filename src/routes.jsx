@@ -9,6 +9,7 @@ import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { ContactList } from "./pages/ContactList";
 import { AddContact } from "./pages/AddContact";
+import { EditContact } from "./components/EditContact";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,6 +23,7 @@ export const router = createBrowserRouter(
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
         <Route path="/" element={<ContactList />} />
         <Route path="/addcontact" element={<AddContact />} />
+        <Route path="/editcontact/:id" element={<EditContact />} />
       </Route>
     )
 );

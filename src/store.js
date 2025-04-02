@@ -23,10 +23,10 @@ export default function storeReducer(store, action = {}) {
         ...store,
         contacts: [...store.contacts, action.payload],
       }
-    case 'update_contact':
+    case 'edit_contact':
       return {
         ...store,
-        contacts: action.payload,
+        contacts: store.contacts.filter(contact => contact.id !== action.payload)
       }
     case 'delete_contact':
       return {
